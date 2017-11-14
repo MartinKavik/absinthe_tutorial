@@ -40,11 +40,14 @@ defmodule Blog.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:absinthe, "~> 1.4.0-rc or ~> 1.4", override: true},
-      {:absinthe_plug, "~> 1.4.0-rc or ~> 1.4", override: true},
+      # {:absinthe, "~> 1.4.0-rc or ~> 1.4", override: true},
+      {:absinthe, git: "git://github.com/MartinKavik/absinthe", branch: "fix-result-fields-order", override: true},
+      # {:absinthe_plug, "~> 1.4.0-rc or ~> 1.4", override: true},
+      {:absinthe_plug, git: "git://github.com/MartinKavik/absinthe_plug", branch: "fix-result-fields-order", override: true},
       {:absinthe_ecto, ">= 0.0.0"},
       {:ecto_enum, "~> 1.0"},
       {:comeonin, "~> 4.0"},
+      # there can be problem with argon2_elixir compilation on Windows, see /init_windows_cmd.bat
       {:argon2_elixir, "~> 1.2"},
     ]
   end

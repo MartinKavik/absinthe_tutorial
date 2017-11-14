@@ -6,11 +6,11 @@ defmodule BlogWeb.Router do
     plug BlogWeb.Context
   end
 
+  forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: BlogWeb.Schema
+
   scope "/api" do
     pipe_through :api
-
-    forward "/graphiql", Absinthe.Plug.GraphiQL,
-      schema: BlogWeb.Schema
 
     forward "/", Absinthe.Plug,
       schema: BlogWeb.Schema
